@@ -18,6 +18,38 @@ export default class AddCite extends Component {
             Author
           </label>
         </form>
+        <div className={styles.trigger_options} tabIndex="2">
+          <div className={styles.option}>
+            <img src="pushkin.jpg" width="44" height="44" alt="" />
+            <span className={styles.option__txt}>Новая карта</span>
+          </div>
+        </div>
+        <div className={styles.options}>
+          <div className={styles.option}>
+            <img src="pushkin.jpg" width="44" height="44" alt="" />
+            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
+          </div>
+          <div className={styles.option}>
+            <img src="pushkin.jpg" width="44" height="44" alt="" />
+            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
+          </div>
+          <div className={styles.option}>
+            <img src="pushkin.jpg" width="44" height="44" alt="" />
+            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
+          </div>
+          <div className={styles.option}>
+            <img src="pushkin.jpg" width="44" height="44" alt="" />
+            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
+          </div>
+          <div className={styles.option}>
+            <img src="pushkin.jpg" width="44" height="44" alt="" />
+            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
+          </div>
+          <div className={styles.option}>
+            <img src="pushkin.jpg" width="44" height="44" alt="" />
+            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
+          </div>
+        </div>
       </div>
     );
   }
