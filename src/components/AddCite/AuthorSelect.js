@@ -8,13 +8,23 @@ export default class AuthorSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      author: {
+        id: 2,
+        name: 'Толстой',
+        photo: 'tolstoy.jpg'
+      },
       isClicked: false
     };
     this.clickHandler = this.clickHandler.bind(this);
+    this.selectHandler = this.selectHandler.bind(this);
   }
   fetchData() {
     return data.map(element => (
-      <div key={element.id} className={styles.option}>
+      <div
+        key={element.id}
+        className={styles.option}
+        onClick={e => this.selectHandler(element, e)}
+      >
         <img src={element.photo} width="44" height="44" alt="" />
         <span className={styles.option__txt}>{element.name}</span>
       </div>
@@ -23,6 +33,13 @@ export default class AuthorSelect extends Component {
   clickHandler() {
     this.setState({
       isClicked: !this.state.isClicked
+    });
+  }
+  selectHandler(event) {
+    console.log('event', event);
+    this.setState({
+      isClicked: false,
+      author: event
     });
   }
   render() {
@@ -38,8 +55,8 @@ export default class AuthorSelect extends Component {
           onClick={this.clickHandler}
         >
           <div className={styles.option}>
-            <img src="pushkin.jpg" width="44" height="44" alt="" />
-            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
+            <img src={this.state.author.photo} width="44" height="44" alt="" />
+            <span className={styles.option__txt}>{this.state.author.name}</span>
           </div>
         </div>
         <div className={selectDropdownClass}>{this.fetchData()}</div>
