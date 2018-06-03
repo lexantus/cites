@@ -1,0 +1,90 @@
+.wrapper {
+  display: block;
+  outline: none;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.wrapper > * {
+  outline: none;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+.wrapper .img {
+  width: 0;
+  height: 49px;
+  border: none;
+  transition: 0.5s;
+  padding: 0;
+  opacity: 0;
+}
+
+.wrapper .input {
+  width: 0;
+  height: 49px;
+  border: none;
+  padding: 0;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.wrapper_show .img {
+  width: 15%;
+  border: 1px solid #e0e0e0;
+  transition-property: width;
+  transition: 0.5s;
+  opacity: 1;
+  padding: 3px;
+}
+
+.wrapper_show .input {
+  width: 60%;
+  border: 1px solid #e0e0e0;
+  border-left: none;
+  border-right: none;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  transition-property: width;
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.wrapper_show .btn {
+  border-bottom-right-radius: 6px;
+  transition: 0.5s;
+}
+
+.img {
+  float: left;
+  padding: 3px;
+}
+
+.input {
+  float: left;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.btn {
+  cursor: pointer;
+  float: left;
+  display: inline-block;
+  border: 1px solid mediumpurple;
+  padding-top: 13px;
+  padding-bottom: 12px;
+  color: white;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 18px;
+  background-color: mediumpurple;
+  width: 25%;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-color: rebeccapurple;
+  transition: 0.5s;
+}

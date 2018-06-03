@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import styles from "./index.css";
+import React, { Component } from 'react';
+import AddAuthor from './AddAuthor';
+import styles from './index.css';
 
 export default class AddCite extends Component {
   render() {
@@ -7,14 +8,14 @@ export default class AddCite extends Component {
       <div className={styles.window}>
         <div className={styles.h1}>Add cite</div>
         <form method="POST" action="/cites/add">
-          <label className={styles.label} for="cite">
+          <label className={styles.label} htmlFor="cite">
             Cite
           </label>
-          <span className={styles.textarea} id="cite" contenteditable="true" />
+          <span className={styles.textarea} id="cite" contentEditable="true" />
           <div className={styles.textareaRectWrapper}>
             <div className={styles.textareaRect} />
           </div>
-          <label className={styles.label} for="author">
+          <label className={styles.label} htmlFor="author">
             Author
           </label>
           <div>
@@ -26,45 +27,7 @@ export default class AddCite extends Component {
                 </span>
               </div>
             </div>
-            <div className={(styles.options, styles.options_hide)}>
-              <div className={styles.option}>
-                <img src="pushkin.jpg" width="44" height="44" alt="" />
-                <span className={styles.option__txt}>
-                  Пушкин Александр Сергеич
-                </span>
-              </div>
-              <div className={styles.option}>
-                <img src="pushkin.jpg" width="44" height="44" alt="" />
-                <span className={styles.option__txt}>
-                  Пушкин Александр Сергеич
-                </span>
-              </div>
-              <div className={styles.option}>
-                <img src="pushkin.jpg" width="44" height="44" alt="" />
-                <span className={styles.option__txt}>
-                  Пушкин Александр Сергеич
-                </span>
-              </div>
-              <div className={styles.option}>
-                <img src="pushkin.jpg" width="44" height="44" alt="" />
-                <span className={styles.option__txt}>
-                  Пушкин Александр Сергеич
-                </span>
-              </div>
-              <div className={styles.option}>
-                <img src="pushkin.jpg" width="44" height="44" alt="" />
-                <span className={styles.option__txt}>
-                  Пушкин Александр Сергеич
-                </span>
-              </div>
-              <div className={styles.option}>
-                <img src="pushkin.jpg" width="44" height="44" alt="" />
-                <span className={styles.option__txt}>
-                  Пушкин Александр Сергеич
-                </span>
-              </div>
-            </div>
-            <button className={styles.btn}>Add</button>
+            <AddAuthor />
           </div>
           <button className={styles.submit} type="submit">
             Submit
