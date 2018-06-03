@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import AddAuthor from './AddAuthor';
 import styles from './AuthorSelect.css';
+import data from '../../data/authors.json';
 
 export default class AuthorSelect extends Component {
   constructor(props) {
@@ -10,6 +11,14 @@ export default class AuthorSelect extends Component {
       isClicked: false
     };
     this.clickHandler = this.clickHandler.bind(this);
+  }
+  fetchData() {
+    return data.map(element => (
+      <div key={element.id} className={styles.option}>
+        <img src={element.photo} width="44" height="44" alt="" />
+        <span className={styles.option__txt}>{element.name}</span>
+      </div>
+    ));
   }
   clickHandler() {
     this.setState({
@@ -33,24 +42,7 @@ export default class AuthorSelect extends Component {
             <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
           </div>
         </div>
-        <div className={selectDropdownClass}>
-          <div className={styles.option}>
-            <img src="pushkin.jpg" width="44" height="44" alt="" />
-            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
-          </div>
-          <div className={styles.option}>
-            <img src="pushkin.jpg" width="44" height="44" alt="" />
-            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
-          </div>
-          <div className={styles.option}>
-            <img src="pushkin.jpg" width="44" height="44" alt="" />
-            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
-          </div>
-          <div className={styles.option}>
-            <img src="pushkin.jpg" width="44" height="44" alt="" />
-            <span className={styles.option__txt}>Пушкин Александр Сергеич</span>
-          </div>
-        </div>
+        <div className={selectDropdownClass}>{this.fetchData()}</div>
         <AddAuthor />
       </div>
     );

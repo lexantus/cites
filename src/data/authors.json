@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Пушкин",
+    "photo": "pushkin.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Толстой",
+    "photo": "tolstoy.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Лебедев",
+    "photo": "lebedev.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Гандопас",
+    "photo": "gandopas.jpg"
+  }
+]
