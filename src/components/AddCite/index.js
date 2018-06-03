@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddAuthor from './AddAuthor';
+import AuthorSelect from './AuthorSelect';
 import styles from './index.css';
 
 export default class AddCite extends Component {
@@ -18,17 +18,7 @@ export default class AddCite extends Component {
           <label className={styles.label} htmlFor="author">
             Author
           </label>
-          <div>
-            <div className={styles.trigger_options} tabIndex="2">
-              <div className={styles.option}>
-                <img src="pushkin.jpg" width="44" height="44" alt="" />
-                <span className={styles.option__txt}>
-                  Пушкин Александр Сергеич
-                </span>
-              </div>
-            </div>
-            <AddAuthor />
-          </div>
+          <AuthorSelect />
           <button className={styles.submit} type="submit">
             Submit
           </button>

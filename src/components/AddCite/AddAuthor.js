@@ -11,7 +11,6 @@ export default class AddCite extends Component {
     this.clickHandler = this.clickHandler.bind(this);
   }
   clickHandler() {
-    console.log('Click handler');
     this.setState({
       isClicked: !this.state.isClicked
     });
