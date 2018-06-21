@@ -107,6 +107,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "stylelint": "^9.3.0",
     "webpack-dashboard": "^2.0.0"
   }
 }
