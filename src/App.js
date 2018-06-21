@@ -1,12 +1,19 @@
-import React, { Component } from "react";
-import AddCite from "./components/AddCite";
+import React, { Component } from 'react';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import AddCite from './components/AddCite';
+import { changeAuthor } from './reducers';
+import { createLogger } from 'redux-logger';
+
+const logger = createLogger();
+const store = createStore(changeAuthor, applyMiddleware(logger));
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <Provider store={store}>
         <AddCite />
-      </div>
+      </Provider>
     );
   }
 }

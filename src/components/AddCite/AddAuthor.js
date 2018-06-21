@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import styles from './AddAuthor.css';
 
-export default class AddCite extends Component {
+export default class AddAuthor extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,8 +22,12 @@ export default class AddCite extends Component {
     });
     return (
       <div className={wrapperClass}>
-        <a className={styles.img} href="#">
-          <img src="placeholder.svg" />
+        <a
+          className={styles.img}
+          href="/uploadImg"
+          onClick={this.props.uploadImg}
+        >
+          <img src="placeholder.svg" alt="" />
         </a>
         <input className={styles.input} type="text" placeholder="Author name" />
         <button
