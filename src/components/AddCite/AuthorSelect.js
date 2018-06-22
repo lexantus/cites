@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import classNames from 'classnames';
-import { connect } from 'react-redux';
-import { setAuthor, toggleAuthors } from '../../actions';
-import AddAuthor from './AddAuthor';
-import styles from './AuthorSelect.css';
-import data from '../../data/authors.json';
+import React, { Component } from "react";
+import classNames from "classnames";
+import { connect } from "react-redux";
+import { setAuthor, toggleAuthors } from "../../actions";
+import AddAuthor from "./AddAuthor";
+import styles from "./AuthorSelect.css";
+import data from "../../data/authors.json";
 
 const mapStateToProps = ({ author, isShowAuthorsList }) => ({
   author,

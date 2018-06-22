@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import classNames from 'classnames';
-import styles from './AddAuthor.css';
+import React, { Component } from "react";
+import classNames from "classnames";
+import styles from "./AddAuthor.css";
 
 export default class AddAuthor extends Component {
   constructor(props) {

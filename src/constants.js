@@ -1,2 +1,2 @@
-export const CHANGE_AUTHOR = 'CHANGE_AUTHOR';
-export const TOGGLE_AUTHORS = 'TOGGLE_AUTHORS';
+export const CHANGE_AUTHOR = "CHANGE_AUTHOR";
+export const TOGGLE_AUTHORS = "TOGGLE_AUTHORS";

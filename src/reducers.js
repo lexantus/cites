@@ -1,10 +1,10 @@
-import { CHANGE_AUTHOR, TOGGLE_AUTHORS } from './constants';
+import { CHANGE_AUTHOR, TOGGLE_AUTHORS } from "./constants";
 
 const initialAuthorDataState = {
   author: {
     id: 2,
-    name: 'Толстой',
-    photo: 'tolstoy.jpg'
+    name: "Толстой",
+    photo: "tolstoy.jpg"
   },
   isShowAuthorsList: false
 };

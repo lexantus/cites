@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import AuthorSelect from './AuthorSelect';
-import styles from './index.css';
+import React, { Component } from "react";
+import AuthorSelect from "./AuthorSelect";
+import styles from "./index.css";
 
 export default class AddCite extends Component {
   render() {

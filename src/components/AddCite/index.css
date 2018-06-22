@@ -26,7 +26,7 @@
   top: -41px;
   left: -1px;
   display: inline-block;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-size: 26px;
   margin: 0;
   margin-bottom: 10px;
@@ -39,7 +39,7 @@
 .label {
   display: block;
   font-size: 20px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   margin-bottom: 10px;
 }
 
@@ -52,7 +52,7 @@
   border: 1px solid #e0e0e0;
   border-radius: 6px;
   padding: 20px 20px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-size: 18px;
   line-height: 22px;
   background: white;
@@ -69,7 +69,7 @@
 }
 
 .textareaRect {
-  content: '';
+  content: "";
   position: absolute;
   top: -18px;
   display: block;
@@ -87,7 +87,7 @@
 
 .submit {
   display: block;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   padding: 10px 20px;
   font-size: 24px;
   border-radius: 6px;
