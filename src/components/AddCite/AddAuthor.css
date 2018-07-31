@@ -12,7 +12,7 @@
   box-sizing: border-box;
 }
 
-.wrapper .img {
+.wrapper .input_file_label {
   width: 0;
   height: 49px;
   border: none;
@@ -34,7 +34,7 @@
   border-bottom-left-radius: 6px;
 }
 
-.wrapper_show .img {
+.wrapper_show .input_file_label {
   width: 15%;
   border: 1px solid #e0e0e0;
   transition-property: width;
@@ -63,16 +63,30 @@
   border-bottom-left-radius: 0;
 }
 
-.img {
-  float: left;
-  padding: 3px;
-}
-
 .input {
   float: left;
   display: inline-block;
   font-size: 16px;
   font-family: "Exo 2", sans-serif;
+}
+
+.input_file_label {
+  display: inline-block;
+  cursor: pointer;
+  float: left;
+}
+
+.input_file_label:hover {
+  background-color: rebeccapurple;
+}
+
+.input_file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 .btn {
