@@ -10,10 +10,21 @@ export default class AddAuthor extends Component {
     };
     this.clickHandler = this.clickHandler.bind(this);
   }
+  changeImg(files) {
+    const fr = new FileReader();
+    fr.onload = () => {
+      this.img.setAttribute("src", fr.result);
+      this.textInput.focus();
+    };
+    fr.readAsDataURL(files[0]);
+  }
   clickHandler() {
     this.setState({
       isClicked: !this.state.isClicked
     });
+    if (this.state.isClicked) {
+      console.log("UPLOADING IMG...");
+    }
     this.textInput.focus();
   }
   render() {
@@ -24,14 +35,14 @@ export default class AddAuthor extends Component {
     return (
       <div className={wrapperClass}>
         <label className={styles.input_file_label} htmlFor="inputAvatar">
-          <img src="placeholder.svg" alt="" />
+          <img ref={img => (this.img = img)} src="placeholder.svg" alt="" />
         </label>
         <input
           id="inputAvatar"
           type="file"
           accept="image/jpeg, image/png"
           className={styles.input_file}
-          onClick={this.props.uploadImg}
+          onChange={event => this.changeImg(event.target.files)}
         />
         <input
           ref={input => (this.textInput = input)}
