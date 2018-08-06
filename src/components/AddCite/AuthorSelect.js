@@ -6,7 +6,7 @@ import AddAuthor from "./AddAuthor";
 import styles from "./AuthorSelect.css";
 import data from "../../data/authors.json";
 
-const mapStateToProps = ({ author, isShowAuthorsList }) => ({
+const mapStateToProps = ({ app: { author, isShowAuthorsList } }) => ({
   author,
   isShowAuthorsList
 });
@@ -27,7 +27,10 @@ class AuthorSelect extends Component {
       <div
         key={element.id}
         className={styles.option}
-        onClick={e => this.props.onChangeAuthor(element, e)}
+        onClick={e => {
+          this.props.onChangeAuthor(element, e);
+          this.props.input.onChange(element);
+        }}
       >
         <img src={element.photo} width="44" height="44" alt="" />
         <span className={styles.option__txt}>{element.name}</span>
@@ -36,10 +39,12 @@ class AuthorSelect extends Component {
   }
 
   render() {
+    console.log("THIS PROPS", this.props);
     const selectDropdownClass = classNames({
       [styles.options]: true,
       [styles.options_hide]: !this.props.isShowAuthorsList
     });
+    const { input } = this.props;
     return (
       <div>
         <div
@@ -48,8 +53,8 @@ class AuthorSelect extends Component {
           onClick={this.props.onClickHandler}
         >
           <div className={styles.option}>
-            <img src={this.props.author.photo} width="44" height="44" alt="" />
-            <span className={styles.option__txt}>{this.props.author.name}</span>
+            <img src={input.value.photo} width="44" height="44" alt="" />
+            <span className={styles.option__txt}>{input.value.name}</span>
           </div>
         </div>
         <div className={selectDropdownClass}>{this.fetchData()}</div>
