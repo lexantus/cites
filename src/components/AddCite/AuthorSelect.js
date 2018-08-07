@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 import { connect } from "react-redux";
-import { setAuthor, toggleAuthors } from "../../actions";
+import { Field } from "redux-form";
+import { toggleAuthors } from "../../actions";
 import AddAuthor from "./AddAuthor";
 import styles from "./AuthorSelect.css";
 import data from "../../data/authors.json";
 
-const mapStateToProps = ({ app: { author, isShowAuthorsList } }) => ({
-  author,
+const mapStateToProps = ({ app: { isShowAuthorsList } }) => ({
   isShowAuthorsList
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChangeAuthor: author => {
-    dispatch(setAuthor(author));
-    dispatch(toggleAuthors());
-  },
   onClickHandler: () => {
     dispatch(toggleAuthors());
   }
@@ -27,9 +23,9 @@ class AuthorSelect extends Component {
       <div
         key={element.id}
         className={styles.option}
-        onClick={e => {
-          this.props.onChangeAuthor(element, e);
+        onClick={() => {
           this.props.input.onChange(element);
+          this.props.onClickHandler();
         }}
       >
         <img src={element.photo} width="44" height="44" alt="" />
@@ -39,7 +35,6 @@ class AuthorSelect extends Component {
   }
 
   render() {
-    console.log("THIS PROPS", this.props);
     const selectDropdownClass = classNames({
       [styles.options]: true,
       [styles.options_hide]: !this.props.isShowAuthorsList
@@ -58,7 +53,7 @@ class AuthorSelect extends Component {
           </div>
         </div>
         <div className={selectDropdownClass}>{this.fetchData()}</div>
-        <AddAuthor />
+        <Field name="newAuthor" component={AddAuthor} />
       </div>
     );
   }

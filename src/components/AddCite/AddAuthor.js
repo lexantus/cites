@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import styles from "./AddAuthor.css";
 
-export default class AddAuthor extends Component {
+class AddAuthor extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +23,9 @@ export default class AddAuthor extends Component {
       isClicked: !this.state.isClicked
     });
     if (this.state.isClicked) {
-      console.log("UPLOADING IMG...");
+      const formData = new FormData();
+      formData.append("file", this.fileInput.files[0]);
+      this.props.input.onChange({ img: formData, name: this.textInput.value });
     }
     this.textInput.focus();
   }
@@ -38,6 +40,7 @@ export default class AddAuthor extends Component {
           <img ref={img => (this.img = img)} src="placeholder.svg" alt="" />
         </label>
         <input
+          ref={input => (this.fileInput = input)}
           id="inputAvatar"
           type="file"
           accept="image/jpeg, image/png"
@@ -62,3 +65,5 @@ export default class AddAuthor extends Component {
     );
   }
 }
+
+export default AddAuthor;

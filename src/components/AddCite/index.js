@@ -5,18 +5,18 @@ import AuthorSelect from "./AuthorSelect";
 import styles from "./index.css";
 
 class AddCite extends Component {
-  constructor(props) {
-    super(props);
-    this.submit = this.submit.bind(this);
-  }
-  submit(values) {
-    console.log("E", values);
-  }
   render() {
+    const { handleSubmit } = this.props;
     return (
       <div className={styles.window}>
         <div className={styles.h1}>Add cite</div>
-        <form method="POST" action="/cites" onSubmit={this.submit}>
+        <form
+          method="POST"
+          action="/cites"
+          onSubmit={handleSubmit(values =>
+            console.log("Submit VALUES", values)
+          )}
+        >
           <label className={styles.label} htmlFor="cite">
             Cite
           </label>
@@ -50,5 +50,7 @@ const mapStateToProps = ({ authorImgFormData }) => ({
 });
 
 export default connect(mapStateToProps)(
-  reduxForm({ form: "addCite" })(AddCite)
+  reduxForm({
+    form: "addCite"
+  })(AddCite)
 );
