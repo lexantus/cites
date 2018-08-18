@@ -59,7 +59,7 @@ class AddAuthor extends Component {
           className={styles.btn}
           onClick={this.clickHandler}
         >
-          {this.state.isClicked ? "Add" : "Add >"}
+          {this.state.isClicked ? "←" : "→"}
         </button>
       </div>
     );
