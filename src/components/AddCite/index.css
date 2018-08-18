@@ -1,16 +1,15 @@
 .window {
   display: inline-block;
   border: 1px solid #e0e0e0;
-  background: white;
+  background: #fff;
   border-top-left-radius: 0;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   padding: 20px 20px;
-  position: relative;
   width: 300px;
-  top: 100px;
-  left: 100px;
+  position: relative;
+  top: 41px;
 }
 
 .window * {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { reducer as formReducer } from "redux-form";
 import { Provider } from "react-redux";
-import AddCite from "./components/AddCite";
+import MainPage from "./pages/Main";
 import { changeAuthor } from "./reducers";
 import { createLogger } from "redux-logger";
 
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <AddCite />
+        <MainPage />
       </Provider>
     );
   }

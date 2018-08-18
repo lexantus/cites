@@ -1,0 +1,27 @@
+.table {
+  border-collapse: collapse;
+  font-family: "Exo 2", sans-serif;
+}
+
+.table th {
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding: 4px 14px;
+}
+
+.table td {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.td1 {
+  width: 700px;
+}
+
+.td2 {
+  width: 50px;
+}
