@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./index.css";
 
 const getTableRow = ({ cite, author }) => (
-  <tr>
+  <tr key={cite}>
     <td className={styles.td1}>{cite}</td>
     <td className={styles.td2}>{author}</td>
   </tr>
@@ -11,11 +11,13 @@ const getTableRow = ({ cite, author }) => (
 
 const CitesTable = ({ data }) => (
   <table className={styles.table}>
-    <tr>
-      <th>Cite</th>
-      <th>Author</th>
-    </tr>
-    {data.map(getTableRow)}
+    <thead>
+      <tr>
+        <th>Cite</th>
+        <th>Author</th>
+      </tr>
+    </thead>
+    <tbody>{data.map(getTableRow)}</tbody>
   </table>
 );
 
