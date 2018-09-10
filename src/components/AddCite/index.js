@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
+import { createCite } from "../../actions";
 import AuthorSelect from "./AuthorSelect";
 import styles from "./index.css";
 
 class AddCite extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, onSubmit } = this.props;
     return (
       <div className={styles.window}>
         <div className={styles.h1}>Add cite</div>
         <form
           method="POST"
-          action="/cites"
-          onSubmit={handleSubmit(values =>
-            console.log("Submit VALUES", values)
-          )}
+          action="/cites/create"
+          onSubmit={handleSubmit(onSubmit)}
         >
           <label className={styles.label} htmlFor="cite">
             Cite
@@ -49,7 +48,11 @@ const mapStateToProps = ({ authorImgFormData }) => ({
   authorImgFormData
 });
 
-export default connect(mapStateToProps)(
+const mapDispatchToProps = dispatch => ({
+  onSubmit: values => dispatch(createCite(values))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(
   reduxForm({
     form: "addCite"
   })(AddCite)
