@@ -4,6 +4,7 @@ import { reduxForm, Field } from "redux-form";
 import { createCite } from "../../actions";
 import AuthorSelect from "./AuthorSelect";
 import styles from "./index.css";
+import PropTypes from "prop-types";
 
 class AddCite extends Component {
   render() {
@@ -36,15 +37,29 @@ class AddCite extends Component {
   }
 }
 
+AddCite.defaultProps = {
+  data: []
+};
+
+AddCite.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      photo: PropTypes.string
+    })
+  )
+};
+
 const mapStateToProps = ({ authorImgFormData }) => ({
-  initialValues: {
-    cite: "Hello world",
-    author: {
-      id: 3,
-      name: "Лебедев",
-      photo: "lebedev.jpg"
-    }
-  },
+  // initialValues: {
+  //   cite: "Hello world",
+  //   author: {
+  //     id: 3,
+  //     name: "Лебедев",
+  //     photo: ""
+  //   }
+  // },
   authorImgFormData
 });
 

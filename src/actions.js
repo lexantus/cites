@@ -1,8 +1,11 @@
 import {
   TOGGLE_AUTHORS,
-  REQUEST_DATA_PENDING,
-  REQUEST_DATA_SUCCESS,
-  REQUEST_DATA_FAIL,
+  REQUEST_CITES_PENDING,
+  REQUEST_CITES_SUCCESS,
+  REQUEST_CITES_FAIL,
+  REQUEST_AUTHORS_PENDING,
+  REQUEST_AUTHORS_SUCCESS,
+  REQUEST_AUTHORS_FAIL,
   REQUEST_CREATE_CITE_PENDING,
   REQUEST_CREATE_CITE_SUCCESS,
   REQUEST_CREATE_CITE_FAIL
@@ -10,15 +13,27 @@ import {
 
 export const toggleAuthors = () => ({ type: TOGGLE_AUTHORS });
 
-export const setData = () => dispatch => {
-  dispatch({ type: REQUEST_DATA_PENDING });
+export const getCites = () => dispatch => {
+  dispatch({ type: REQUEST_CITES_PENDING });
   fetch("/cites", { method: "GET" })
     .then(res => res.json())
     .then(data => {
-      dispatch({ type: REQUEST_DATA_SUCCESS, payload: data });
+      dispatch({ type: REQUEST_CITES_SUCCESS, payload: data });
     })
     .catch(error => {
-      dispatch({ type: REQUEST_DATA_FAIL, payload: error });
+      dispatch({ type: REQUEST_CITES_FAIL, payload: error });
+    });
+};
+
+export const getAuthors = () => dispatch => {
+  dispatch({ type: REQUEST_AUTHORS_PENDING });
+  fetch("/authors", { method: "GET" })
+    .then(res => res.json())
+    .then(data => {
+      dispatch({ type: REQUEST_AUTHORS_SUCCESS, payload: data });
+    })
+    .catch(error => {
+      dispatch({ type: REQUEST_AUTHORS_FAIL, payload: error });
     });
 };
 

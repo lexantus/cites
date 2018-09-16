@@ -1,8 +1,11 @@
 import {
   TOGGLE_AUTHORS,
-  REQUEST_DATA_PENDING,
-  REQUEST_DATA_SUCCESS,
-  REQUEST_DATA_FAIL
+  REQUEST_CITES_PENDING,
+  REQUEST_CITES_SUCCESS,
+  REQUEST_CITES_FAIL,
+  REQUEST_AUTHORS_PENDING,
+  REQUEST_AUTHORS_SUCCESS,
+  REQUEST_AUTHORS_FAIL
 } from "./constants";
 
 const initialAuthorDataState = {
@@ -19,19 +22,32 @@ export const changeAuthor = (state = initialAuthorDataState, action = {}) => {
 };
 
 const initialDataState = {
-  isPending: false,
-  data: [],
-  error: ""
+  isPendingCites: false,
+  isPendingAuthors: false,
+  cites: [],
+  authors: [],
+  errorCites: "",
+  errorAuthors: ""
 };
 
 export const requestData = (state = initialDataState, action = {}) => {
   switch (action.type) {
-    case REQUEST_DATA_PENDING:
-      return { ...state, isPending: true };
-    case REQUEST_DATA_SUCCESS:
-      return { ...state, data: action.payload, isPending: false };
-    case REQUEST_DATA_FAIL:
-      return { ...state, error: action.payload, isPending: false };
+    case REQUEST_CITES_PENDING:
+      return { ...state, isPendingCites: true };
+    case REQUEST_CITES_SUCCESS:
+      return { ...state, cites: action.payload, isPendingCites: false };
+    case REQUEST_CITES_FAIL:
+      return { ...state, errorCites: action.payload, isPendingCites: false };
+    case REQUEST_AUTHORS_PENDING:
+      return { ...state, isPendingAuthors: true };
+    case REQUEST_AUTHORS_SUCCESS:
+      return { ...state, authors: action.payload, isPendingAuthors: false };
+    case REQUEST_AUTHORS_FAIL:
+      return {
+        ...state,
+        errorAuthors: action.payload,
+        isPendingAuthors: false
+      };
     default:
       return state;
   }

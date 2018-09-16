@@ -5,10 +5,13 @@ import { Field } from "redux-form";
 import { toggleAuthors } from "../../actions";
 import AddAuthor from "./AddAuthor";
 import styles from "./AuthorSelect.css";
-import data from "../../data/authors.json";
 
-const mapStateToProps = ({ app: { isShowAuthorsList } }) => ({
-  isShowAuthorsList
+const mapStateToProps = ({
+  app: { isShowAuthorsList },
+  requestData: { authors }
+}) => ({
+  isShowAuthorsList,
+  authors
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
 
 class AuthorSelect extends Component {
   fetchData() {
-    return data.map(element => (
+    return this.props.authors.map(element => (
       <div
         key={element.id}
         className={styles.option}
