@@ -5,7 +5,8 @@ import {
   REQUEST_CITES_FAIL,
   REQUEST_AUTHORS_PENDING,
   REQUEST_AUTHORS_SUCCESS,
-  REQUEST_AUTHORS_FAIL
+  REQUEST_AUTHORS_FAIL,
+  REQUEST_CREATE_CITE_SUCCESS
 } from "./constants";
 
 const initialAuthorDataState = {
@@ -48,6 +49,8 @@ export const requestData = (state = initialDataState, action = {}) => {
         errorAuthors: action.payload,
         isPendingAuthors: false
       };
+    case REQUEST_CREATE_CITE_SUCCESS:
+      return { ...state, cites: action.payload, isPendingCites: false };
     default:
       return state;
   }
