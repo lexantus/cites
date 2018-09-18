@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "../../components/Header";
 import AddCite from "../../components/AddCite";
 import CitesTable from "../../components/CitesTable";
 import styles from "./index.css";
@@ -27,17 +28,20 @@ class MainPage extends Component {
 
   render() {
     return (
-      <div className={styles.wrapper}>
-        {this.props.isPendingAuthors ? (
-          <h1>Loading ...</h1>
-        ) : (
-          <AddCite data={this.props.authors} />
-        )}
-        {this.props.isPendingCites ? (
-          <h1>Loading ...</h1>
-        ) : (
-          <CitesTable data={this.props.cites} />
-        )}
+      <div>
+        <Header />
+        <div className={styles.wrapper}>
+          {this.props.isPendingAuthors ? (
+            <h1>Loading ...</h1>
+          ) : (
+            <AddCite data={this.props.authors} />
+          )}
+          {this.props.isPendingCites ? (
+            <h1>Loading ...</h1>
+          ) : (
+            <CitesTable data={this.props.cites} />
+          )}
+        </div>
       </div>
     );
   }
