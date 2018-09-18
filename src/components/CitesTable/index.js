@@ -8,7 +8,8 @@ class CitesTable extends Component {
     super(props);
     this.data = props.data;
     this.state = {
-      activePage: 1
+      activePage: 1,
+      perPage: 10
     };
   }
 
@@ -18,7 +19,7 @@ class CitesTable extends Component {
 
   getTableRow({ id, cite, author }) {
     return (
-      <tr key={cite}>
+      <tr key={id}>
         <td>{id}</td>
         <td className={styles.td1}>{cite}</td>
         <td className={styles.td2}>{author}</td>
@@ -27,6 +28,10 @@ class CitesTable extends Component {
   }
 
   render() {
+    const firstIndex = (this.state.activePage - 1) * this.state.perPage;
+    const secondIndex = firstIndex + this.state.perPage;
+    const ar = this.data.slice(firstIndex, secondIndex);
+
     return (
       <div>
         <table className={styles.table}>
@@ -37,11 +42,11 @@ class CitesTable extends Component {
               <th>Author</th>
             </tr>
           </thead>
-          <tbody>{this.data.map(this.getTableRow)}</tbody>
+          <tbody>{ar.map(this.getTableRow)}</tbody>
         </table>
         <Pagination
           total={this.data.length}
-          itemsPerPage={10}
+          itemsPerPage={this.state.perPage}
           activePage={this.state.activePage}
           clickHandler={i => this.clickPagination(i)}
         />

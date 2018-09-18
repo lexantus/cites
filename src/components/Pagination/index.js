@@ -6,7 +6,7 @@ import styles from "./index.css";
 class Pagination extends Component {
   constructor(props) {
     super(props);
-    this.numPages = Math.floor(props.total / props.itemsPerPage);
+    this.numPages = Math.ceil(props.total / props.itemsPerPage);
     this.pages = [];
     for (let i = 0; i < this.numPages; i++) {
       this.pages.push(i + 1);
