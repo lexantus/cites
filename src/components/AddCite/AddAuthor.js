@@ -25,7 +25,8 @@ class AddAuthor extends Component {
     if (this.state.isClicked) {
       const formData = new FormData();
       formData.append("file", this.fileInput.files[0]);
-      this.props.input.onChange({ img: formData, name: this.textInput.value });
+      formData.append("name", this.textInput.value);
+      this.props.input.onChange({ formData });
     }
     this.textInput.focus();
   }
