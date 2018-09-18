@@ -4,9 +4,18 @@ import styles from "./index.css";
 import Pagination from "../Pagination";
 
 class CitesTable extends Component {
+  static getTableRow({ id, cite, author }) {
+    return (
+      <tr key={id}>
+        <td>{id}</td>
+        <td className={styles.td1}>{cite}</td>
+        <td className={styles.td2}>{author}</td>
+      </tr>
+    );
+  }
+
   constructor(props) {
     super(props);
-    this.data = props.data;
     this.state = {
       activePage: 1,
       perPage: 10
@@ -17,20 +26,10 @@ class CitesTable extends Component {
     this.setState({ activePage: i });
   }
 
-  getTableRow({ id, cite, author }) {
-    return (
-      <tr key={id}>
-        <td>{id}</td>
-        <td className={styles.td1}>{cite}</td>
-        <td className={styles.td2}>{author}</td>
-      </tr>
-    );
-  }
-
   render() {
     const firstIndex = (this.state.activePage - 1) * this.state.perPage;
     const secondIndex = firstIndex + this.state.perPage;
-    const ar = this.data.slice(firstIndex, secondIndex);
+    const ar = this.props.data.slice(firstIndex, secondIndex);
 
     return (
       <div>
@@ -42,10 +41,10 @@ class CitesTable extends Component {
               <th>Author</th>
             </tr>
           </thead>
-          <tbody>{ar.map(this.getTableRow)}</tbody>
+          <tbody>{ar.map(CitesTable.getTableRow)}</tbody>
         </table>
         <Pagination
-          total={this.data.length}
+          total={this.props.data.length}
           itemsPerPage={this.state.perPage}
           activePage={this.state.activePage}
           clickHandler={i => this.clickPagination(i)}

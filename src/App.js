@@ -14,7 +14,7 @@ const reducers = combineReducers({
   app: changeAuthor,
   requestData
 });
-const store = createStore(reducers, applyMiddleware(thunkMiddleware, logger));
+const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 class App extends Component {
   render() {

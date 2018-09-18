@@ -6,11 +6,6 @@ import styles from "./index.css";
 class Pagination extends Component {
   constructor(props) {
     super(props);
-    this.numPages = Math.ceil(props.total / props.itemsPerPage);
-    this.pages = [];
-    for (let i = 0; i < this.numPages; i++) {
-      this.pages.push(i + 1);
-    }
   }
 
   getPageBtn(i, isActive = false) {
@@ -27,7 +22,9 @@ class Pagination extends Component {
   }
 
   render() {
-    if (this.numPages > 0) {
+    const numPages = Math.ceil(this.props.total / this.props.itemsPerPage);
+    const pages = Array.from({ length: numPages }, (v, k) => k + 1);
+    if (numPages > 0) {
       return (
         <ul className={styles.pagination}>
           <li>
@@ -44,7 +41,7 @@ class Pagination extends Component {
               ←
             </a>
           </li>
-          {this.pages.map((page, i) =>
+          {pages.map((page, i) =>
             this.getPageBtn(i + 1, i + 1 === this.props.activePage)
           )}
           <li>
@@ -52,7 +49,7 @@ class Pagination extends Component {
               className="next"
               onClick={() =>
                 this.props.clickHandler(
-                  this.props.activePage < this.numPages
+                  this.props.activePage < numPages
                     ? this.props.activePage + 1
                     : this.props.activePage
                 )
