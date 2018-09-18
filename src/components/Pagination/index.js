@@ -1,45 +1,72 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./index.css";
 
-const Pagination = ({ itemsPerPage, total, activePage, clickHandler }) => {
-  const numPages = Math.floor(total / itemsPerPage);
-  const getPageBtn = (i, isActive = false) => {
+class Pagination extends Component {
+  constructor(props) {
+    super(props);
+    this.numPages = Math.floor(props.total / props.itemsPerPage);
+    this.pages = [];
+    for (let i = 0; i < this.numPages; i++) {
+      this.pages.push(i + 1);
+    }
+  }
+
+  getPageBtn(i, isActive = false) {
     const classes = classNames({
       [styles.active]: isActive
     });
     return (
-      <li>
-        <a className={classes} onClick={() => clickHandler(i)}>
+      <li key={i}>
+        <a className={classes} onClick={() => this.props.clickHandler(i)}>
           {i}
         </a>
       </li>
     );
-  };
-  const pages = [];
-  for (let i = 0; i < numPages; i++) {
-    pages.push(i + 1);
   }
-  if (numPages > 0) {
-    return (
-      <ul className={styles.pagination}>
-        <li>
-          <a href="#" className="prev">
-            ←
-          </a>
-        </li>
-        {pages.map((page, i) => getPageBtn(i + 1, i + 1 === activePage))}
-        <li>
-          <a href="#" className="next">
-            →
-          </a>
-        </li>
-      </ul>
-    );
+
+  render() {
+    if (this.numPages > 0) {
+      return (
+        <ul className={styles.pagination}>
+          <li>
+            <a
+              className="prev"
+              onClick={() =>
+                this.props.clickHandler(
+                  this.props.activePage >= 2
+                    ? this.props.activePage - 1
+                    : this.props.activePage
+                )
+              }
+            >
+              ←
+            </a>
+          </li>
+          {this.pages.map((page, i) =>
+            this.getPageBtn(i + 1, i + 1 === this.props.activePage)
+          )}
+          <li>
+            <a
+              className="next"
+              onClick={() =>
+                this.props.clickHandler(
+                  this.props.activePage < this.numPages
+                    ? this.props.activePage + 1
+                    : this.props.activePage
+                )
+              }
+            >
+              →
+            </a>
+          </li>
+        </ul>
+      );
+    }
+    return null;
   }
-  return null;
-};
+}
 
 Pagination.propTypes = {
   total: PropTypes.number.isRequired,

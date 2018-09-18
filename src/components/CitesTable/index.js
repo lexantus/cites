@@ -1,22 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "./index.css";
 import Pagination from "../Pagination";
 
 class CitesTable extends Component {
-  constructor({ data }) {
-    super(data);
+  constructor(props) {
+    super(props);
+    this.data = props.data;
+    this.state = {
+      activePage: 1
+    };
   }
 
-  render() {
-    const getTableRow = ({ id, cite, author }) => (
+  clickPagination(i) {
+    this.setState({ activePage: i });
+  }
+
+  getTableRow({ id, cite, author }) {
+    return (
       <tr key={cite}>
         <td>{id}</td>
         <td className={styles.td1}>{cite}</td>
         <td className={styles.td2}>{author}</td>
       </tr>
     );
+  }
 
+  render() {
     return (
       <div>
         <table className={styles.table}>
@@ -27,13 +37,13 @@ class CitesTable extends Component {
               <th>Author</th>
             </tr>
           </thead>
-          <tbody>{data.map(getTableRow)}</tbody>
+          <tbody>{this.data.map(this.getTableRow)}</tbody>
         </table>
         <Pagination
-          total={100}
+          total={this.data.length}
           itemsPerPage={10}
-          activePage={1}
-          clickHandler={i => console.log("click on ", i)}
+          activePage={this.state.activePage}
+          clickHandler={i => this.clickPagination(i)}
         />
       </div>
     );
