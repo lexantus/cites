@@ -46,7 +46,7 @@
 }
 
 .wrapper_show .input {
-  width: 60%;
+  width: 157px;
   border: 1px solid #e0e0e0;
   border-left: none;
   border-right: none;
@@ -104,18 +104,44 @@
   float: left;
   display: inline-block;
   border: 1px solid mediumpurple;
-  padding-top: 13px;
-  padding-bottom: 12px;
   color: white;
   font-family: "Exo 2", sans-serif;
   font-size: 18px;
   background-color: mediumpurple;
-  width: 25%;
+  width: 60px;
   transition: 0.5s;
   border-bottom-right-radius: 6px;
+  height: 49px;
 }
 
 .btn:hover {
   background-color: rebeccapurple;
   transition: 0.5s;
+}
+
+.btn.btn_cancel {
+  background-color: darkred;
+  border: red;
+  border-radius: 0;
+  width: 49px;
+  line-height: 49px;
+  padding: 0;
+}
+
+.btn.btn_cancel:hover {
+  background-color: red;
+}
+
+.btn.btn_accept {
+  font-size: 36px;
+  background-color: darkgreen;
+  border: green;
+  border-radius: 0;
+  width: 49px;
+  line-height: 49px;
+  padding: 0;
+}
+
+.btn.btn_accept:hover {
+  background-color: green;
 }

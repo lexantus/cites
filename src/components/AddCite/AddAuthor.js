@@ -30,10 +30,23 @@ class AddAuthor extends Component {
     }
     this.textInput.focus();
   }
+  closeHandler() {
+    this.setState({
+      isClicked: false
+    });
+  }
   render() {
     const wrapperClass = classNames({
       [styles.wrapper]: true,
       [styles.wrapper_show]: this.state.isClicked
+    });
+    const acceptClass = classNames({
+      [styles.btn]: true,
+      [styles.btn_accept]: this.state.isClicked
+    });
+    const cancelClass = classNames({
+      [styles.btn]: true,
+      [styles.btn_cancel]: this.state.isClicked
     });
     return (
       <div className={wrapperClass}>
@@ -57,11 +70,20 @@ class AddAuthor extends Component {
         />
         <button
           type="button"
-          className={styles.btn}
+          className={acceptClass}
           onClick={this.clickHandler}
         >
-          {this.state.isClicked ? "←" : "→"}
+          {this.state.isClicked ? "+" : "→"}
         </button>
+        {this.state.isClicked && (
+          <button
+            type="button"
+            className={cancelClass}
+            onClick={this.clickHandler}
+          >
+            ✕
+          </button>
+        )}
       </div>
     );
   }

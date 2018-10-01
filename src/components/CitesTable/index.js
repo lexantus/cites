@@ -33,6 +33,12 @@ class CitesTable extends Component {
 
     return (
       <div>
+        <Pagination
+          total={this.props.data.length}
+          itemsPerPage={this.state.perPage}
+          activePage={this.state.activePage}
+          clickHandler={i => this.clickPagination(i)}
+        />
         <table className={styles.table}>
           <thead>
             <tr>
@@ -43,12 +49,6 @@ class CitesTable extends Component {
           </thead>
           <tbody>{ar.map(CitesTable.getTableRow)}</tbody>
         </table>
-        <Pagination
-          total={this.props.data.length}
-          itemsPerPage={this.state.perPage}
-          activePage={this.state.activePage}
-          clickHandler={i => this.clickPagination(i)}
-        />
       </div>
     );
   }
