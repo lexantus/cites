@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <LoginPage />
+        <MainPage />
       </Provider>
     );
   }
