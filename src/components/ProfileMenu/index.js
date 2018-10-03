@@ -5,6 +5,10 @@ const ProfileMenu = () => {
   return (
     <div className={styles.avatar}>
       <img src="placeholder.svg" alt="" />
+      <ul>
+        <li>View profile</li>
+        <li>Sign out</li>
+      </ul>
     </div>
   );
 };

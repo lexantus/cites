@@ -1,10 +1,43 @@
 .avatar {
   display: block;
+  position: absolute;
+  right: 20px;
+  font-family: "Exo 2", sans-serif;
+}
+
+.avatar img {
   width: 40px;
   height: 40px;
   padding: 5px;
   border-radius: 50%;
   object-fit: cover;
-  position: absolute;
+  cursor: pointer;
+}
+
+.avatar ul {
+  position: fixed;
+  top: 50px;
   right: 20px;
+  border: 1px solid #e0e0e0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.avatar li {
+  background: white;
+  padding: 10px;
+  transition: 0.5s;
+  user-select: none;
+  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.avatar li:last-child {
+  border-bottom: none;
+}
+
+.avatar li:hover {
+  background: rebeccapurple;
+  color: white;
 }
