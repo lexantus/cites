@@ -4,10 +4,6 @@ import classNames from "classnames";
 import styles from "./index.css";
 
 class Pagination extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   getPageBtn(i, isActive = false) {
     const classes = classNames({
       [styles.active]: isActive

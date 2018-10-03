@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+}
+
+.window {
+  display: block;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px 20px;
+  width: 300px;
+}
+
+.input {
+  font-family: "Exo 2", sans-serif;
+  display: block;
+  border: 1px solid #e0e0e0;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-size: 20px;
+  font-family: "Exo 2", sans-serif;
+  margin-bottom: 10px;
+}
+
+.submit {
+  display: block;
+  font-family: "Exo 2", sans-serif;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: mediumpurple;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
