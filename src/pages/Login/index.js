@@ -7,6 +7,7 @@ class LoginPage extends Component {
       <div>
         <div className={styles.wrapper}>
           <form className={styles.window} action="/api/login" method="post">
+            <h2 className={styles.header}>Authorization</h2>
             <label className={styles.label} htmlFor="login">
               Login
             </label>
