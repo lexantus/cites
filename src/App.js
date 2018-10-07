@@ -3,7 +3,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { reducer as formReducer } from "redux-form";
 import { Provider } from "react-redux";
 import MainPage from "./pages/Main";
-import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Register";
 import { changeAuthor, requestData } from "./reducers";
 import thunkMiddleware from "redux-thunk";
 
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <MainPage />
+        <RegisterPage />
       </Provider>
     );
   }

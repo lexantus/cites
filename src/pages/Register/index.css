@@ -1,0 +1,82 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+}
+
+.window {
+  display: block;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px 20px;
+  width: 300px;
+  font-family: "Exo 2", sans-serif;
+}
+
+.header {
+  font-family: "Exo 2", sans-serif;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: normal;
+  user-select: none;
+}
+
+.input {
+  font-family: "Exo 2", sans-serif;
+  font-size: 14px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.error {
+  border: 1px solid darkred !important;
+  background-color: lightcoral !important;
+}
+
+.label {
+  display: block;
+  font-size: 20px;
+  font-family: "Exo 2", sans-serif;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.submit {
+  display: block;
+  font-family: "Exo 2", sans-serif;
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 6px;
+  border: 1px solid mediumpurple;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: mediumpurple;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-top: 24px;
+  user-select: none;
+}
+
+.submit:focus {
+  outline: none;
+  border: 1px solid purple;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid mediumpurple;
+}
