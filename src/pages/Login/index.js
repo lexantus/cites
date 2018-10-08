@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import styles from "./index.css";
 
 class LoginPage extends Component {
@@ -8,6 +9,9 @@ class LoginPage extends Component {
         <div className={styles.wrapper}>
           <form className={styles.window} action="/api/login" method="post">
             <h2 className={styles.header}>Authorization</h2>
+            <div className={styles.linkDiv}>
+              or <Link to="/register">Register</Link>
+            </div>
             <label className={styles.label} htmlFor="login">
               Login
             </label>
@@ -31,6 +35,9 @@ class LoginPage extends Component {
             <button className={styles.submit} type="submit">
               Submit
             </button>
+            <div className={styles.linkDiv}>
+              <Link to="/forgot">Forget password?</Link>
+            </div>
           </form>
         </div>
       </div>

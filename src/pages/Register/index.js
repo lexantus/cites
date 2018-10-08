@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import styles from "./index.css";
 
 class RegisterPage extends Component {
@@ -68,6 +69,9 @@ class RegisterPage extends Component {
             onSubmit={e => this.handleSubmit(e)}
           >
             <h2 className={styles.header}>Registration</h2>
+            <div className={styles.linkDiv}>
+              or <Link to="/login">Login</Link>
+            </div>
             <label className={styles.label} htmlFor="login">
               Login
             </label>
