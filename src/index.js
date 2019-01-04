@@ -5,6 +5,7 @@ import "./index.css";
 import MainPage from "./pages/Main";
 import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
+import Page404 from "./pages/404";
 import registerServiceWorker from "./registerServiceWorker";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -26,6 +27,7 @@ ReactDOM.render(
         <Route exact path="/" component={MainPage} />
         <Route path="/register" component={RegisterPage} />
         <Route path="/login" component={LoginPage} />
+        <Route component={Page404} />
       </Switch>
     </BrowserRouter>
   </Provider>,
