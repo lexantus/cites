@@ -46,6 +46,7 @@
     "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0",
     "resolve": "1.6.0",
+    "storybook": "^5.1.11",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
@@ -59,7 +60,9 @@
     "build": "node scripts/build.js",
     "cp": "cp -r build/ ../cites_backend/public",
     "test": "node scripts/test.js --env=jsdom",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
@@ -97,6 +100,10 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.2.4",
+    "@storybook/addon-links": "^5.2.4",
+    "@storybook/addons": "^5.2.4",
+    "@storybook/react": "^5.2.4",
     "pretty-quick": "^1.6.0",
     "stylelint": "^9.3.0"
   }
